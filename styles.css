@@ -1,0 +1,218 @@
+.swpf-hltb-badge,
+.swpf-hltb-loader,
+.swpf-hltb-error {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 19px;
+  padding: 2px 7px;
+  margin-left: 6px;
+  border: 1px solid rgba(103, 193, 245, 0.42);
+  border-radius: 3px;
+  background: rgba(15, 33, 46, 0.88);
+  color: #67c1f5 !important;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none !important;
+  white-space: nowrap;
+  vertical-align: middle;
+  order: 9999;
+}
+
+.swpf-hltb-badge:hover {
+  border-color: rgba(103, 193, 245, 0.85);
+  background: rgba(31, 63, 85, 0.96);
+  color: #ffffff !important;
+}
+
+.swpf-hltb-loader {
+  opacity: 0.62;
+  animation: swpf-hltb-pulse 1.15s ease-in-out infinite alternate;
+}
+
+.swpf-hltb-error {
+  opacity: 0.45;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.62) !important;
+}
+
+.swpf-hltb-badge[data-swpf-placement="title"],
+.swpf-hltb-loader[data-swpf-placement="title"],
+.swpf-hltb-error[data-swpf-placement="title"] {
+  position: relative;
+  top: -1px;
+}
+
+@keyframes swpf-hltb-pulse {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 0.82;
+  }
+}
+
+/* HLTB entries injected into Steam's native Sort by dropdown. Most visual
+   styling is inherited by cloning a native Steam option; these rules provide
+   a fallback and a hover state if Steam changes its generated classes. */
+.swpf-hltb-sort-option {
+  cursor: pointer !important;
+  user-select: none;
+}
+
+.swpf-hltb-sort-option:hover,
+.swpf-hltb-sort-option:focus {
+  color: #ffffff !important;
+  background: rgba(103, 193, 245, 0.12) !important;
+  outline: none;
+}
+
+/* While a custom HLTB sort is active, Steam still thinks its last native sort
+   (for example Discount) is selected. Cover only the native text area while
+   leaving Steam's dropdown arrow visible on the right. */
+.swpf-hltb-sort-button-active {
+  position: relative !important;
+  min-width: 205px !important;
+}
+
+.swpf-hltb-sort-button-active::after {
+  content: attr(data-swpf-hltb-sort-label);
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  right: 30px;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  background-color: #3d4450;
+  color: #d6d7d8;
+  font: inherit;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Small status chip next to Steam's sort button while HLTB sorting is active.
+   During the first full sort it doubles as a progress indicator. */
+.swpf-hltb-sort-indicator {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin-left: 8px;
+  padding: 0 10px;
+  border: 1px solid rgba(103, 193, 245, 0.35);
+  border-radius: 2px;
+  background: rgba(15, 33, 46, 0.9);
+  color: #67c1f5;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* Arbitrary minimum Steam review-count filter placed beside Steam's native
+   wishlist controls. */
+.swpf-review-filter-control {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 40px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  background: #3d4450;
+  color: #d6d7d8;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.swpf-review-filter-control.swpf-review-filter-active {
+  border-color: rgba(103, 193, 245, 0.55);
+  box-shadow: inset 0 0 0 1px rgba(103, 193, 245, 0.1);
+}
+
+.swpf-review-filter-label {
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+.swpf-review-filter-input {
+  box-sizing: border-box;
+  width: 82px;
+  height: 26px;
+  padding: 2px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 2px;
+  outline: none;
+  background: #20252d;
+  color: #ffffff;
+  font: inherit;
+}
+
+.swpf-review-filter-input:focus {
+  border-color: #67c1f5;
+}
+
+.swpf-review-filter-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.swpf-review-filter-clear {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.swpf-review-filter-clear:hover {
+  color: #ffffff;
+}
+
+/* Steam review-count badge added to Steam's native cards. */
+.swpf-review-count-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 5px;
+  border: 1px solid rgba(103, 193, 245, 0.45);
+  border-radius: 2px;
+  background: rgba(20, 60, 85, 0.55);
+  color: #67c1f5;
+  font-size: 10px;
+  line-height: 14px;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.swpf-review-filter-control.swpf-review-filter-active
+  .swpf-review-filter-label {
+  color: #67c1f5;
+  font-weight: 600;
+}
+
+/* The native text remains intact for React and for dataset verification. */
+[data-swpf-item-count-patched] {
+  position: relative;
+  color: transparent !important;
+}
+[data-swpf-item-count-patched]::after {
+  content: attr(data-swpf-display-count);
+  position: absolute;
+  inset: 0;
+  color: #d6d7d8;
+  white-space: nowrap;
+}

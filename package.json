@@ -1,0 +1,14 @@
+{
+  "name": "steam-howlongtobeat-wishlist",
+  "version": "0.13.0",
+  "private": true,
+  "scripts": {
+    "test": "node tests/run.cjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "playwright": "1.62.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0"
+  }
+}

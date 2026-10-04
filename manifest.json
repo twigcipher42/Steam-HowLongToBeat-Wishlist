@@ -1,0 +1,42 @@
+{
+  "manifest_version": 3,
+  "name": "Steam Wishlist Plus - Firefox",
+  "version": "0.13.0",
+  "description": "Adds HowLongToBeat times/sorting plus reliable Steam review-count filtering and sorting to Steam wishlists in Firefox.",
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://store.steampowered.com/*",
+    "https://howlongtobeat.com/*",
+    "https://api.steampowered.com/*"
+  ],
+  "background": {
+    "scripts": [
+      "native-renderer.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://store.steampowered.com/wishlist/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "steam-wishlist-plus-firefox@local",
+      "strict_min_version": "113.0"
+    }
+  }
+}

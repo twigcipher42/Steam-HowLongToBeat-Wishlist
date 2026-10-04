@@ -1,0 +1,9 @@
+This Firefox compatibility port is based on concepts and behavior from:
+Steam Wishlist Plus
+https://github.com/keyunjie96/steam-wishlist-plus
+
+Original project license: Apache License 2.0.
+
+Copyright and attribution remain with the original project's contributors for
+original material derived from that project. This port contains newly written
+Firefox compatibility and wishlist-injection code for the requested use case.

@@ -1,0 +1,6 @@
+node_modules/
+.test-browsers/
+.npm-cache/
+tests/.generated/
+test-results.json
+*.log
